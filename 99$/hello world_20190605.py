@@ -1,0 +1,15 @@
+print('hello world')
+print(5+3)
+
+print('下面我们来做一道两个整数相加的计算题!')
+print('请说出第一个加数:')
+a=input()
+x=int(a)
+print('请说出第二个加数:')
+b=input()
+y=int(b)
+print('它们的和是:',x+y)
+
+#dir(__builtins__)
+#print(dir(__builtins__))
+#help(print)
