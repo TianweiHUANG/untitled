@@ -1,3 +1,4 @@
+"""user:huangtianwei1988@163.com password:huangtianwei1988@163.com's password"""
 """
 import requests
 apiul="http://www.tuling123.com/openapi/api"
@@ -10,9 +11,11 @@ print(r["text"])
 """
 import requests
 #cityID:101280601-深圳
-r_Shenzhen = requests.get('http://www.weather.com.cn/data/sk/101280601.html')
+#r_Shenzhen = requests.get('http://www.weather.com.cn/data/sk/101280601.html')
+r_Shenzhen = requests.get('http://www.weather.com.cn/data/cityinfo/101280601.html')
 #cityID:101230201-厦门
-r_Xiamen = requests.get('http://www.weather.com.cn/data/sk/101230201.html')
+#r_Xiamen = requests.get('http://www.weather.com.cn/data/sk/101230201.html')
+r_Xiamen = requests.get('http://www.weather.com.cn/data/cityinfo/101230201.html')
 #print(type(r))
 #print(r)
 r_Shenzhen.encoding = 'utf-8'
