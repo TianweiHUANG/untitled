@@ -16,11 +16,12 @@ for s in workbook.sheets():
         #输出指定行
         print(s.row(r))
 """
-import xlrd
+
+from xlrd import open_workbook
 from xlutils.copy import copy
 
 #打开xls文件
-workbook=xlrd.open_workbook("xlrd_xlwt_TEST_20190828.xls")
+workbook=open_workbook("xlrd_xlwt_TEST_20190828.xls")
 #获取第1个表单
 sheet1=workbook.sheet_by_index(0)
 print("第二行第三列:",sheet1.cell_value(1,2))
@@ -29,7 +30,8 @@ print("第二行第三列:",sheet1.cell_value(1,2))
 copy_workbook=copy(workbook)
 #获取第1个表单
 copy_sheet1=copy_workbook.get_sheet(0)
-#第二行第三列写入数据
-copy_sheet1.write(1,2,sheet1.cell_value(1,2)-1)
+#第二行第三列写入或修改数据
+copy_sheet1.write(1,2,sheet1.cell_value(1,2)+1)
 #保存xls文件
 copy_workbook.save("xlrd_xlwt_TEST_20190828.xls")
+
