@@ -1,3 +1,30 @@
+"""
+from aip import AipOcr
+# 你的 APPID AK SK
+APP_ID = '17169607'
+API_KEY = 'jGoQmgTGKYFZOzOP5vhh2igD'
+SECRET_KEY = input('Secret_Key:')
+client = AipOcr(APP_ID, API_KEY, SECRET_KEY)
+
+# 读取图片
+def get_file_content(filePath):
+    with open(filePath, 'rb') as fp:
+        return fp.read()
+image_path = 'baiduai_licensePlate.jpg'
+#image_path = 'baiduai_licensePlate-1.jpeg'
+image = get_file_content(image_path)
+
+# 调用车牌识别
+licensePlate_msg=client.licensePlate(image)
+print(licensePlate_msg)
+print(licensePlate_msg['words_result']['color'],licensePlate_msg['words_result']['number'])
+# 如果有可选参数
+#options = {}
+#options["multi_detect"] = "true"
+# 带参数调用车牌识别
+#client.licensePlate(image, options)
+"""
+
 # -*- coding: utf-8 -*-
 # !/usr/bin/env python
 import urllib
@@ -6,9 +33,10 @@ import urllib.request
 import base64
 import json
 
-#client_id 为官网获取的AK， client_secret 为官网获取的SK
-#client_id = '*******'
-#client_secret = '**************'
+# client_id 为官网获取的AK， client_secret 为官网获取的SK
+client_id = 'jGoQmgTGKYFZOzOP5vhh2igD'
+# client_secret = '**************'
+client_secret = input("Secret_Key:")
 
 # 获取token
 def get_token():
@@ -45,16 +73,14 @@ def get_license_plate(path):
         strover = '识别结果：'
         words_result = license_plates['words_result']
         number = words_result['number']
-        strover += '  车牌号：{} \n '.format(number)
+        strover += '车牌号：{} \n '.format(number)
         # print (content)
         print(strover)
         return content
     else:
         return ''
 
-# client_id 为官网获取的AK， client_secret 为官网获取的SK
-client_id = input("API_Key:")
-client_secret = input("Secret_Key:")
-
-image_path = 'baiduAI_苏JAY888.jpg'
+image_path = 'baiduai_licensePlate.jpg'
+get_license_plate(image_path)
+image_path = 'baiduai_licensePlate-1.jpeg'
 get_license_plate(image_path)

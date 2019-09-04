@@ -2,40 +2,31 @@
 import requests
 
 def requests_weather(city="深圳"):
-    cityID_dict = {"深圳": "101280601", "厦门": "101230201"}
+    city_IDdict = {"深圳": "101280601", "厦门": "101230201"}
 
-    #http://www.weather.com.cn/data/sk/*.html
-    #http://www.weather.com.cn/data/cityinfo/*.html
-    #http://m.weather.com.cn/data/*.html
-
-    #r = requests.get('http://www.weather.com.cn/data/sk/%s.html'%cityID_dict[city])
-    r = requests.get('http://www.weather.com.cn/data/cityinfo/%s.html'%cityID_dict[city])
-    #r = requests.get('http://m.weather.com.cn/data/%s.html'%cityID_dict[city])
-
+    #r = requests.get('http://www.weather.com.cn/data/sk/%s.html'%city_IDdict[city])
+    r = requests.get('http://www.weather.com.cn/data/cityinfo/%s.html'%city_IDdict[city])
+    #r = requests.get('http://m.weather.com.cn/data/%s.html'%city_IDdict[city])
     r.encoding = 'utf-8'
-
     print(r.json())
-    print(r.json()['weatherinfo']['city'],
-          r.json()['weatherinfo']['weather'],
-          r.json()['weatherinfo']['temp1'],
-          "~",
-          r.json()['weatherinfo']['temp2'])
 
     return r.json()['weatherinfo']['city']+" "+r.json()['weatherinfo']['weather']+" "+\
            r.json()['weatherinfo']['temp1']+"~"+r.json()['weatherinfo']['temp2']
-requests_weather("厦门")
+
+print(requests_weather("厦门"))
 """
-"""user:huangtianwei1988@163.com password:huangtianwei1988@163.com's password"""
 """
 import requests
 apiul="http://www.tuling123.com/openapi/api"
-#data={"key":"3b04f75866084b30bede0d341c98c3db","info":"深圳天气","userId":"TulingRobot"}
-data={"key":"024848ea750a46f993eba7975330dd1d","info":"翻译","userId":"TulingRobot"}
-r=requests.post(apiul,data=data).json()
-print(type(r))
-print(r)
-print(r["text"])
+while True:
+    date_info=input("Date_info:")
+    data={"key":"3b04f75866084b30bede0d341c98c3db","info":date_info,"userId":"TulingRobot"}
+    #data={"key":"024848ea750a46f993eba7975330dd1d","info":date_info,"userId":"TulingRobot"}
+    reply=requests.post(apiul,data=data).json()
+    #<class 'dict'>{'code': 100000, 'text': '厦门:周三 09月04日,小雨 东北风,最低气温25度，最高气温31度。'}
+    print("Reply:",reply["text"])
 """
+#########################-itchat_TulingRobot_Dome-#########################
 
 import itchat
 import requests
