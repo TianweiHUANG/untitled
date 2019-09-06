@@ -1,4 +1,4 @@
-"""
+
 from aip import AipOcr
 # 你的 APPID AK SK
 APP_ID = '17169607'
@@ -10,21 +10,24 @@ client = AipOcr(APP_ID, API_KEY, SECRET_KEY)
 def get_file_content(filePath):
     with open(filePath, 'rb') as fp:
         return fp.read()
-image_path = 'baiduai_licensePlate.jpg'
+#image_path = 'baiduai_licensePlate.jpg'
 #image_path = 'baiduai_licensePlate-1.jpeg'
+image_path = 'baiduai_words.jpg'
 image = get_file_content(image_path)
 
 # 调用车牌识别
-licensePlate_msg=client.licensePlate(image)
+#licensePlate_msg=client.licensePlate(image)
+licensePlate_msg=client.basicGeneral(image)
 print(licensePlate_msg)
-print(licensePlate_msg['words_result']['color'],licensePlate_msg['words_result']['number'])
+#print(licensePlate_msg['words_result']['color'],licensePlate_msg['words_result']['number'])
+print(licensePlate_msg['words_result'])
 # 如果有可选参数
 #options = {}
 #options["multi_detect"] = "true"
 # 带参数调用车牌识别
 #client.licensePlate(image, options)
-"""
 
+"""
 # -*- coding: utf-8 -*-
 # !/usr/bin/env python
 import urllib
@@ -84,3 +87,4 @@ image_path = 'baiduai_licensePlate.jpg'
 get_license_plate(image_path)
 image_path = 'baiduai_licensePlate-1.jpeg'
 get_license_plate(image_path)
+"""
