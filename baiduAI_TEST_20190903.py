@@ -21,6 +21,9 @@ licensePlate_msg=client.basicGeneral(image)
 print(licensePlate_msg)
 #print(licensePlate_msg['words_result']['color'],licensePlate_msg['words_result']['number'])
 print(licensePlate_msg['words_result'])
+for words in licensePlate_msg['words_result']:
+    print(words['words'])
+
 # 如果有可选参数
 #options = {}
 #options["multi_detect"] = "true"
