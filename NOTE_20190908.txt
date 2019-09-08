@@ -1,0 +1,3 @@
+01$.chrome_bookmark
+02$.\_START_\05$.PyQt5_installer
+03$.\PycharmProjects\untitled
