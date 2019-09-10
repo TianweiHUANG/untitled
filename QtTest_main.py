@@ -36,15 +36,15 @@ if __name__=='__main__':
 #########################-03$.demo_PyQt5_main.py_20190706.JPG-#########################
 """
 import sys
-import QtTest_Dialog_backups,QtTest_DialogBb,QtTest_DialogBr,QtTest_Widget,QtTest_MainWindow
+import QtTest_Dialog,QtTest_DialogBb,QtTest_DialogBr,QtTest_Widget,QtTest_MainWindow
 from PyQt5.QtWidgets import QApplication,QDialog,QWidget,QMainWindow
 if __name__ == '__main__':
   myApp = QApplication(sys.argv)
-  #myWindow = QDialog()
+  myWindow = QDialog()
   #myWindow = QWidget()
   #myWindow = QMainWindow()
 
-  #myUi = QtTest_Dialog_backups.Ui_Dialog()
+  myUi = QtTest_Dialog.Ui_Dialog()
   #myUi = QtTest_DialogBb.Ui_Dialog()
   #myUi = QtTest_DialogBr.Ui_Dialog()
   #myUi = QtTest_Widget.Ui_Form()
@@ -54,33 +54,3 @@ if __name__ == '__main__':
   myWindow.show()
   sys.exit(myApp.exec_())
 """
-#########################-04$.signal_slot_TEST_20190810.Py-#########################
-
-import sys
-from QtTest_Dialog import Ui_Dialog
-from PyQt5.QtWidgets import QApplication,QDialog
-
-class Ui_Dialog_subclass(Ui_Dialog):
-  #pass
-  def setupUi(self, Dialog):
-    super().setupUi(Dialog)
-    self.pushButton.clicked.connect(self.pushButton_clicked)
-    #self.pushButton_2.clicked.connect(self.pushButton_2_clicked)
-    self.pushButton_2.clicked.connect(Dialog.close)
-  def pushButton_clicked(self):
-    print("Hello world")
-  def pushButton_2_clicked(self):
-    Dialog.close
-    #self.Dialog.close
-
-if __name__ == '__main__':
-  myApp = QApplication(sys.argv)
-  myWindow = QDialog()
-
-  #myUi = QtTest_Dialog.Ui_Dialog()
-  myUi = Ui_Dialog_subclass()
-  myUi.setupUi(myWindow)
-
-  myWindow.show()
-  sys.exit(myApp.exec_())
-
