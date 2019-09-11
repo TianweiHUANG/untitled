@@ -1,4 +1,5 @@
-#########################-Pyqt5_Logic_Interface_Separate_demo-#########################
+#########################-Pyqt5_Logic_Interface_Separate_demo_$.01-#########################
+"""
 import sys
 from QtTest_MainWindow import Ui_MainWindow
 from PyQt5.QtWidgets import QApplication,QMainWindow
@@ -21,8 +22,9 @@ if __name__ == '__main__':
   myWindow = MainWindow()
   myWindow.show()
   sys.exit(myApp.exec_())
-
 """
+#########################-Pyqt5_Logic_Interface_Separate_demo_$.02-#########################
+
 import sys
 from LogicInterface import Ui_Dialog
 from PyQt5.QtWidgets import QApplication,QDialog
@@ -32,76 +34,22 @@ class MyDialog(QDialog,Ui_Dialog):
         super(MyDialog,self).__init__(parent)
         self.setupUi(self)
 
-        self.pushButton.clicked.connect(self.pushButton_func)
+        self.pushButton.clicked.connect(self.pushButton_Func)
         self.num = 0
-        self.pushButton_2.clicked.connect(self.pushButton_2_func)
-        self.pushButton_3.clicked.connect(self.pushButton_3_func)
+        self.pushButton_2.clicked.connect(self.pushButton_2_Func)
+        self.pushButton_3.clicked.connect(self.pushButton_3_Func)
 
-    def pushButton_func(self):
+    def pushButton_Func(self):
         self.lineEdit.setText("Hello World")
-    def pushButton_2_func(self):
+    def pushButton_2_Func(self):
         self.num += 1
         self.label.setText(str(self.num))
-    def pushButton_3_func(self):
+    def pushButton_3_Func(self):
         self.lineEdit.setText("")
         self.num = 0
-        self.label.setText(str(self.num))
+        self.label.setText("TextLabel")
 if __name__ == '__main__':
   myApp = QApplication(sys.argv)
   myWindow = MyDialog()
   myWindow.show()
   sys.exit(myApp.exec_())
-"""
-#########################-04$.signal_slot_TEST_20190810.Py-#########################
-"""
-import sys
-from QtTest_Dialog import Ui_Dialog
-from PyQt5.QtWidgets import QApplication,QDialog
-
-class Ui_Dialog_subclass(Ui_Dialog):
-  #pass
-  def setupUi(self, Dialog):
-    super().setupUi(Dialog)
-    self.pushButton.clicked.connect(self.pushButton_clicked)
-    #self.pushButton_2.clicked.connect(self.pushButton_2_clicked)
-    self.pushButton_2.clicked.connect(Dialog.close)
-  def pushButton_clicked(self):
-    print("Hello world")
-  def pushButton_2_clicked(self):
-    Dialog.close
-    #self.Dialog.close
-
-if __name__ == '__main__':
-  myApp = QApplication(sys.argv)
-  myWindow = QDialog()
-
-  #myUi = QtTest_Dialog.Ui_Dialog()
-  myUi = Ui_Dialog_subclass()
-  myUi.setupUi(myWindow)
-
-  myWindow.show()
-  sys.exit(myApp.exec_())
-"""
-"""
-        self.num = 0
-        self.pushButton.clicked.connect(self.showText)
-    def showText(self):
-        self.num+=1
-        self.label.setText(str(self.num))
-        print(self.num)
-"""
-"""
-import sys
-import QtTest_MainWindow
-from PyQt5.QtWidgets import QApplication,QMainWindow
-if __name__ == '__main__':
-  myApp = QApplication(sys.argv)
-  myWindow = QMainWindow()
-
-  myUi = QtTest_MainWindow.Ui_MainWindow()
-  myUi.setupUi(myWindow)
-
-  myWindow.show()
-  sys.exit(myApp.exec_())
-"""
-

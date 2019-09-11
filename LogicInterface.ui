@@ -33,7 +33,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Hello world</string>
+    <string>Say&quot;Hello world&quot;</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_2">
@@ -46,7 +46,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Num_Action</string>
+    <string>Num+1_Act</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_3">
