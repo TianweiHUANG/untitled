@@ -7,7 +7,8 @@ t2 = threading.Thread(target=movie, args=("英雄远征", ))
 #t1.setDaemon(True) # 设置守护线程
 #t2.setDaemon(True) # 设置守护线程
 t1.start()
+t1.join()
 t2.start()
-
+t2.join()
 time.sleep(30.00)
 print("困了,想睡觉了...")
