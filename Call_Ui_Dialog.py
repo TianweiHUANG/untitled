@@ -34,13 +34,18 @@ class MyDialog(QDialog,Ui_Dialog):
         super(MyDialog,self).__init__(parent)
         self.setupUi(self)
 
+        self.lineEdit.textChanged.connect(self.label_2.setText)
+        #self.lineEdit.textChanged.connect(self.lineEdit_Func)
         self.pushButton.clicked.connect(self.pushButton_Func)
         self.num = 0
         self.pushButton_2.clicked.connect(self.pushButton_2_Func)
         self.pushButton_3.clicked.connect(self.pushButton_3_Func)
 
+    def lineEdit_Func(self,lineEdit_textChanged):
+        self.label_2.setText(lineEdit_textChanged)
+        print(lineEdit_textChanged)
     def pushButton_Func(self):
-        self.lineEdit.setText("Hello World")
+        self.lineEdit.setText("Hello world")
     def pushButton_2_Func(self):
         self.num += 1
         self.label.setText(str(self.num))

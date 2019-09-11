@@ -27,6 +27,9 @@ class Ui_Dialog(object):
         self.label = QtWidgets.QLabel(Dialog)
         self.label.setGeometry(QtCore.QRect(150, 60, 131, 41))
         self.label.setObjectName("label")
+        self.label_2 = QtWidgets.QLabel(Dialog)
+        self.label_2.setGeometry(QtCore.QRect(10, 110, 131, 41))
+        self.label_2.setObjectName("label_2")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -38,4 +41,5 @@ class Ui_Dialog(object):
         self.pushButton_2.setText(_translate("Dialog", "Num+1_Act"))
         self.pushButton_3.setText(_translate("Dialog", "Reset"))
         self.label.setText(_translate("Dialog", "TextLabel"))
+        self.label_2.setText(_translate("Dialog", "TextLabel"))
 
