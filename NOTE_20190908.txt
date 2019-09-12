@@ -1,5 +1,3 @@
 01$.\PycharmProjects\untitled -ok
 02$.\_START_\05$.PyQt5_installer -ok
 03$.chrome_bookmark -ok
-
-As Tcp_client: Server_ip/Server_port/Connect/Send/Close
