@@ -1,4 +1,4 @@
-#「LittleHUANG: 按钮取消 创建套接字 窗口命名 部件命名 实时消息栏」
+#「LittleHUANG: 窗口命名 部件命名 创建套接字 按钮取消 实时消息栏」
 """
 import globalvar
 import threading
@@ -54,7 +54,7 @@ if __name__ == '__main__':
   myWindow.show()
   sys.exit(myApp.exec_())
 """
-
+#「LittleHUANG: 窗口命名 部件命名 创建套接字 简化Qtimer 初始值设定 按钮取消 实时消息栏 Try 」
 import globalvar
 import threading
 from TCP_Socket_tool import TCP_Socket_tool
@@ -108,6 +108,7 @@ class MyDialog(QDialog,Ui_Dialog):
         #self.lineEdit_Receive_Message.setText(globalvar.get_value("Receive_Message"))
     def Real_time_Display_Func(self):
         self.lineEdit_Receive_Message.setText(globalvar.get_value("Receive_Message"))
+        self.label_sys_log.setText(globalvar.get_value("sys_log"))
 
 if __name__ == '__main__':
   globalvar._init()
