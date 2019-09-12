@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>TCP_Socket_tool_Dialog</string>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
@@ -52,7 +52,7 @@
     <string>Send_Message</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="lineEdit_Server_IP">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -62,7 +62,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="lineEdit_Server_PORT">
    <property name="geometry">
     <rect>
      <x>150</x>
@@ -72,7 +72,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
+  <widget class="QLineEdit" name="lineEdit_Send_Message">
    <property name="geometry">
     <rect>
      <x>280</x>
@@ -82,7 +82,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="pushButton_Connect">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -95,7 +95,7 @@
     <string>Connect</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="pushButton_Send">
    <property name="geometry">
     <rect>
      <x>150</x>
@@ -108,7 +108,7 @@
     <string>Send</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="pushButton_Close">
    <property name="geometry">
     <rect>
      <x>280</x>
@@ -121,7 +121,7 @@
     <string>Close</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_4">
+  <widget class="QPushButton" name="pushButton_Receive">
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -134,7 +134,7 @@
     <string>Receive</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_4">
+  <widget class="QLineEdit" name="lineEdit_Receive_Message">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -157,7 +157,7 @@
     <string>Receive_Message</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_5">
+  <widget class="QPushButton" name="pushButton_Show_Message">
    <property name="geometry">
     <rect>
      <x>220</x>
