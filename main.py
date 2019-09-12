@@ -33,9 +33,9 @@ class MyDialog(QDialog,Ui_Dialog):
 if __name__ == '__main__':
   globalvar._init()
 
-  t1 = threading.Thread(target=TCP_Socket_tool)
-  t1.setDaemon(True)
-  t1.start()
+  TCP_Socket_tool_Thread = threading.Thread(target=TCP_Socket_tool)
+  TCP_Socket_tool_Thread.setDaemon(True)
+  TCP_Socket_tool_Thread.start()
 
   myApp = QApplication(sys.argv)
   myWindow = MyDialog()
