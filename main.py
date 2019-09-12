@@ -54,6 +54,14 @@ if __name__ == '__main__':
   myWindow.show()
   sys.exit(myApp.exec_())
 """
+"""
+This_is_def MyQtimer(self):
+This_is_self.MyQtimer()
+This_is_def Real_time_Display_Func(self):
+This_is_def Real_time_Display_Func(self):
+This_is_def Real_time_Display_Func(self):
+... ...
+"""
 #「LittleHUANG: 窗口命名 部件命名 创建套接字 简化Qtimer 初始值设定 按钮取消 实时消息栏 Try 」
 import globalvar
 import threading
@@ -82,6 +90,7 @@ class MyDialog(QDialog,Ui_Dialog):
         #PyQt5.QtCore_QTimer_Real-time Display
         #self.pushButton_Show_Message.clicked.connect(self.pushButton_Show_Message_Func)
         self.MyQtimer()
+        print("This_is_self.MyQtimer()")
 
     def lineEdit_Server_IP_Func(self,lineEdit_Server_IP_textChanged):
         globalvar.set_value("Server_IP", lineEdit_Server_IP_textChanged)
@@ -104,11 +113,13 @@ class MyDialog(QDialog,Ui_Dialog):
         timer = QTimer(self)
         timer.timeout.connect(self.Real_time_Display_Func)
         timer.start(100)#100ms
+        print("This_is_def MyQtimer(self):")
     #def pushButton_Show_Message_Func(self):
         #self.lineEdit_Receive_Message.setText(globalvar.get_value("Receive_Message"))
     def Real_time_Display_Func(self):
         self.lineEdit_Receive_Message.setText(globalvar.get_value("Receive_Message"))
         self.label_sys_log.setText(globalvar.get_value("sys_log"))
+        print("This_is_def Real_time_Display_Func(self):")
 
 if __name__ == '__main__':
   globalvar._init()
