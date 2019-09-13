@@ -53,7 +53,7 @@ if __name__ == '__main__':
   myWindow.show()
   sys.exit(myApp.exec_())
 """
-#「LittleHUANG: 窗口命名 部件命名 创建套接字 初始值设定 简化Qtimer Try... 按钮取消 实时消息栏」
+#「LittleHUANG: 窗口命名 部件命名 创建套接字 初始值设定 Try... 按钮取消 进程中断 简化Qtimer 实时消息栏」
 """
 This_is_def MyQtimer(self):
 This_is_self.MyQtimer()
@@ -65,6 +65,7 @@ This_is_def Real_time_Display_Func(self):
 import globalvar
 import threading
 from TCP_Socket_tool import TCP_Socket_tool
+from TCP_Socket_Receive import TCP_Socket_Receive
 
 import sys
 from TCP_Socket_tool_gui import Ui_Dialog
@@ -123,6 +124,8 @@ class MyDialog(QDialog,Ui_Dialog):
         #self.lineEdit_Receive_Message.setText(globalvar.get_value("Receive_Message"))
     def Real_time_Display_Func(self):
         self.label_sys_log.setText(globalvar.get_value("sys_log"))
+        self.label_Receive_Enable.setText(str(globalvar.get_value("tcp_socket"))+"\n"
+                                          +"Receive_Enable:"+str(globalvar.get_value("Receive_Enable")))
         self.lineEdit_Receive_Message.setText(globalvar.get_value("Receive_Message"))
         #print("This_is_def Real_time_Display_Func(self):")
 
@@ -131,11 +134,15 @@ if __name__ == '__main__':
   globalvar._init()
   globalvar.set_value("Server_IP", "192.168.1.101")
   globalvar.set_value("Server_PORT", "1234")
+  globalvar.set_value("Receive_Enable", False)#Reset_Receive_Enable
   globalvar.set_value("send_Message", "Hello WuPingping")
 
   TCP_Socket_tool_Thread = threading.Thread(target=TCP_Socket_tool)
+  TCP_Socket_Receive_Thread = threading.Thread(target=TCP_Socket_Receive)
   TCP_Socket_tool_Thread.setDaemon(True)
+  TCP_Socket_Receive_Thread.setDaemon(True)
   TCP_Socket_tool_Thread.start()
+  TCP_Socket_Receive_Thread.start()
 
   myApp = QApplication(sys.argv)
   myWindow = MyDialog()

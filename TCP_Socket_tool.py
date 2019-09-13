@@ -31,6 +31,7 @@ def TCP_Socket_tool():
         if globalvar.get_value("Connect")==True:
             globalvar.set_value("sys_log", "Tcp socket is connecting...")
             tcp_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            globalvar.set_value("tcp_socket", tcp_socket)#set_tcp_socket
             dest_ip=globalvar.get_value("Server_IP")
             dest_port=int(globalvar.get_value("Server_PORT"))
             dest_addr=(dest_ip,dest_port)
@@ -41,6 +42,7 @@ def TCP_Socket_tool():
             globalvar.set_value("sys_log", "Tcp socket connected...")
             globalvar.set_value("Connect", False)
 
+            globalvar.set_value("Receive_Enable",True)#Set_Receive_Enable
         #2.发送数据
         if globalvar.get_value("Send")==True:
             globalvar.set_value("sys_log", "Tcp socket is sending...")
@@ -53,6 +55,7 @@ def TCP_Socket_tool():
             globalvar.set_value("Send", False)
 
         #3.接收数据
+        """
         if globalvar.get_value("Receive")==True:
             globalvar.set_value("sys_log", "Tcp socket is receiving...")
             recv_data = tcp_socket.recv(1024)
@@ -62,9 +65,11 @@ def TCP_Socket_tool():
                   globalvar.get_value("Send_Message"),globalvar.get_value("Receive_Message"),"Receive=True")
             globalvar.set_value("sys_log", "Tcp socket received...")
             globalvar.set_value("Receive", False)
-
+        """
         #4.关闭套接字socket
         if globalvar.get_value("Close")==True:
+            globalvar.set_value("Receive_Enable", False)#Reset_Receive_Enable
+
             globalvar.set_value("sys_log", "Tcp socket is closing...")
             tcp_socket.close()
 
