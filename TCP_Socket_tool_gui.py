@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(441, 321)
+        Dialog.resize(411, 321)
         self.label = QtWidgets.QLabel(Dialog)
         self.label.setGeometry(QtCore.QRect(20, 20, 54, 16))
         self.label.setObjectName("label")
@@ -40,7 +40,7 @@ class Ui_Dialog(object):
         self.pushButton_Close.setGeometry(QtCore.QRect(150, 110, 111, 41))
         self.pushButton_Close.setObjectName("pushButton_Close")
         self.pushButton_Receive = QtWidgets.QPushButton(Dialog)
-        self.pushButton_Receive.setGeometry(QtCore.QRect(250, 260, 81, 41))
+        self.pushButton_Receive.setGeometry(QtCore.QRect(280, 260, 111, 41))
         self.pushButton_Receive.setObjectName("pushButton_Receive")
         self.lineEdit_Receive_Message = QtWidgets.QLineEdit(Dialog)
         self.lineEdit_Receive_Message.setGeometry(QtCore.QRect(280, 200, 111, 41))
@@ -49,13 +49,13 @@ class Ui_Dialog(object):
         self.label_4.setGeometry(QtCore.QRect(280, 170, 91, 16))
         self.label_4.setObjectName("label_4")
         self.pushButton_Show_Message = QtWidgets.QPushButton(Dialog)
-        self.pushButton_Show_Message.setGeometry(QtCore.QRect(340, 260, 81, 41))
+        self.pushButton_Show_Message.setGeometry(QtCore.QRect(150, 260, 111, 41))
         self.pushButton_Show_Message.setObjectName("pushButton_Show_Message")
         self.label_sys_log = QtWidgets.QLabel(Dialog)
         self.label_sys_log.setGeometry(QtCore.QRect(20, 200, 241, 41))
         self.label_sys_log.setObjectName("label_sys_log")
         self.label_5 = QtWidgets.QLabel(Dialog)
-        self.label_5.setGeometry(QtCore.QRect(20, 170, 54, 16))
+        self.label_5.setGeometry(QtCore.QRect(20, 170, 91, 16))
         self.label_5.setObjectName("label_5")
 
         self.retranslateUi(Dialog)

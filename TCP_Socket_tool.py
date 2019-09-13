@@ -22,8 +22,11 @@ OSError: [WinError 10038] 在一个非套接字上尝试了一个操作。
 """
 def TCP_Socket_tool():
     #tcp_socket=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    #Close之后必须重新创建socket，否则无法重新connect。
     while True:
         #tcp_socket=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        #connect之后不能再次创建socket，否则将自动Close。
+
         #1.创建套接字socket,连接服务器
         if globalvar.get_value("Connect")==True:
             globalvar.set_value("sys_log", "Tcp socket is connecting...")
@@ -33,9 +36,9 @@ def TCP_Socket_tool():
             dest_addr=(dest_ip,dest_port)
             tcp_socket.connect(dest_addr)
 
-            globalvar.set_value("sys_log", "Tcp socket connected...")
             print(globalvar.get_value("Server_IP"), globalvar.get_value("Server_PORT"),
                   globalvar.get_value("Send_Message"),globalvar.get_value("Receive_Message"),"Connect=True")
+            globalvar.set_value("sys_log", "Tcp socket connected...")
             globalvar.set_value("Connect", False)
 
         #2.发送数据
@@ -44,20 +47,20 @@ def TCP_Socket_tool():
             send_data=globalvar.get_value("send_Message")
             tcp_socket.send(send_data.encode("utf-8"))
 
-            globalvar.set_value("sys_log", "Tcp socket sended...")
             print(globalvar.get_value("Server_IP"), globalvar.get_value("Server_PORT"),
                   globalvar.get_value("Send_Message"),globalvar.get_value("Receive_Message"),"Send=True")
+            globalvar.set_value("sys_log", "Tcp socket sended...")
             globalvar.set_value("Send", False)
+
         #3.接收数据
         if globalvar.get_value("Receive")==True:
             globalvar.set_value("sys_log", "Tcp socket is receiving...")
             recv_data = tcp_socket.recv(1024)
-            #globalvar.set_value("sys_log", "Tcp socket is receiving...")
             globalvar.set_value("Receive_Message", recv_data.decode("utf-8"))
 
-            globalvar.set_value("sys_log", "Tcp socket received...")
             print(globalvar.get_value("Server_IP"), globalvar.get_value("Server_PORT"),
                   globalvar.get_value("Send_Message"),globalvar.get_value("Receive_Message"),"Receive=True")
+            globalvar.set_value("sys_log", "Tcp socket received...")
             globalvar.set_value("Receive", False)
 
         #4.关闭套接字socket
@@ -65,9 +68,9 @@ def TCP_Socket_tool():
             globalvar.set_value("sys_log", "Tcp socket is closing...")
             tcp_socket.close()
 
-            globalvar.set_value("sys_log", "Tcp socket closed...")
             print(globalvar.get_value("Server_IP"), globalvar.get_value("Server_PORT"),
                   globalvar.get_value("Send_Message"),globalvar.get_value("Receive_Message"),"Close=True")
+            globalvar.set_value("sys_log", "Tcp socket closed...")
             globalvar.set_value("Close", False)
 
         time.sleep(0.1)#0.1s
