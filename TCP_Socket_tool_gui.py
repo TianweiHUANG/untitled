@@ -54,6 +54,9 @@ class Ui_Dialog(object):
         self.label_Receive_Enable = QtWidgets.QLabel(Dialog)
         self.label_Receive_Enable.setGeometry(QtCore.QRect(20, 260, 371, 41))
         self.label_Receive_Enable.setObjectName("label_Receive_Enable")
+        self.label_6 = QtWidgets.QLabel(Dialog)
+        self.label_6.setGeometry(QtCore.QRect(20, 220, 241, 16))
+        self.label_6.setObjectName("label_6")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -71,4 +74,5 @@ class Ui_Dialog(object):
         self.label_sys_log.setText(_translate("Dialog", "TextLabel"))
         self.label_5.setText(_translate("Dialog", "sys_log"))
         self.label_Receive_Enable.setText(_translate("Dialog", "TextLabel"))
+        self.label_6.setText(_translate("Dialog", "________________________________________"))
 

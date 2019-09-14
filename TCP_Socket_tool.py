@@ -31,12 +31,21 @@ def TCP_Socket_tool():
         if globalvar.get_value("Connect")==True:
             globalvar.set_value("sys_log", "Tcp socket is connecting...")
 
-            #globalvar.set_value("Receive_Enable",False)#Reset_Receive_Enable
+            #解决方式：connect之前tcp_socket.close()。
+            globalvar.set_value("Receive_Enable", False)  # Reset_Receive_Enable
+            try:
+                tcp_socket.close()
+            #UnboundLocalError: local variable'tcp_socket'referenced before assignment
+            except UnboundLocalError:
+                print("TCP_Socket_close is UnboundLocalError...")
+
             tcp_socket=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             globalvar.set_value("tcp_socket",tcp_socket)#set_tcp_socket
             dest_ip=globalvar.get_value("Server_IP")
             dest_port=int(globalvar.get_value("Server_PORT"))
             dest_addr=(dest_ip,dest_port)
+            #在connect之后等待Receive_Message期间，重复connect时报错啦；
+            #ConnectionRefusedError:[WinError 10061]由于目标计算机积极拒绝，无法连接；
             tcp_socket.connect(dest_addr)
 
             print(globalvar.get_value("Server_IP"), globalvar.get_value("Server_PORT"),
