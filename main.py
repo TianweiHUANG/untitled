@@ -180,7 +180,7 @@ class MyDialog(QDialog,Ui_Dialog):
         self.pushButton_Send.clicked.connect(self.pushButton_Send_Func)
 
         #self.MyQtimer()#PyQt5.QtCore_QTimer_Real-time Show
-        self.MyQtimer = QTimer()
+        self.MyQtimer = QTimer(self)
         self.MyQtimer.start(100)#100ms
         self.MyQtimer.timeout.connect(self.Real_time_Display_Func)
 
@@ -208,8 +208,8 @@ class MyDialog(QDialog,Ui_Dialog):
                                           +"Receive_Enable:"+str(globalvar.get_value("Receive_Enable")))
         self.lineEdit_Receive_Message.setText(globalvar.get_value("Receive_Message"))
         #textBrowser_sys_log
-        #self.textBrowser_sys_log.append("Hello world")#文本框逐条添加数据
-        #self.textBrowser_sys_log.moveCursor(self.textBrowser_sys_log.textCursor().End)#文本框显示到底部
+        self.textBrowser_sys_log.append("Hello world")#文本框逐条添加数据
+        self.textBrowser_sys_log.moveCursor(self.textBrowser_sys_log.textCursor().End)#文本框显示到底部
 
 if __name__ == '__main__':
   #全局变量初始化...
