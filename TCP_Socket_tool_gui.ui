@@ -2,14 +2,6 @@
 <ui version="4.0">
  <class>Dialog</class>
  <widget class="QDialog" name="Dialog">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>411</width>
-    <height>321</height>
-   </rect>
-  </property>
   <property name="windowTitle">
    <string>TCP_Socket_tool_Dialog</string>
   </property>
@@ -124,8 +116,8 @@
   <widget class="QLineEdit" name="lineEdit_Receive_Message">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>200</y>
+     <x>410</x>
+     <y>50</y>
      <width>111</width>
      <height>41</height>
     </rect>
@@ -134,8 +126,8 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>170</y>
+     <x>410</x>
+     <y>20</y>
      <width>111</width>
      <height>16</height>
     </rect>
@@ -148,8 +140,8 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>200</y>
-     <width>241</width>
+     <y>180</y>
+     <width>511</width>
      <height>41</height>
     </rect>
    </property>
@@ -173,9 +165,9 @@
   <widget class="QLabel" name="label_Receive_Enable">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>260</y>
-     <width>371</width>
+     <x>410</x>
+     <y>110</y>
+     <width>111</width>
      <height>41</height>
     </rect>
    </property>
@@ -187,13 +179,23 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>220</y>
-     <width>241</width>
+     <y>200</y>
+     <width>511</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>________________________________________</string>
+    <string>___________________________________________________________________________________</string>
+   </property>
+  </widget>
+  <widget class="QTextBrowser" name="textBrowser_sys_log">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>220</y>
+     <width>501</width>
+     <height>251</height>
+    </rect>
    </property>
   </widget>
  </widget>

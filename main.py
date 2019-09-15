@@ -179,8 +179,10 @@ class MyDialog(QDialog,Ui_Dialog):
         self.pushButton_Close.clicked.connect(self.pushButton_Close_Func)
         self.pushButton_Send.clicked.connect(self.pushButton_Send_Func)
 
-        self.MyQtimer()#PyQt5.QtCore_QTimer_Real-time Show
-        #print("This_is_self.MyQtimer()")
+        #self.MyQtimer()#PyQt5.QtCore_QTimer_Real-time Show
+        self.MyQtimer = QTimer()
+        self.MyQtimer.start(100)#100ms
+        self.MyQtimer.timeout.connect(self.Real_time_Display_Func)
 
     def lineEdit_Server_IP_Func(self,lineEdit_Server_IP_textChanged):
         globalvar.set_value("Server_IP", lineEdit_Server_IP_textChanged)
@@ -196,17 +198,18 @@ class MyDialog(QDialog,Ui_Dialog):
     def pushButton_Send_Func(self):
         globalvar.set_value("Send",True)
 
-    def MyQtimer(self):#PyQt5.QtCore_QTimer_Real-time Show
-        timer = QTimer(self)
-        timer.timeout.connect(self.Real_time_Display_Func)
-        timer.start(100)#100ms
-        #print("This_is_def MyQtimer(self):")
+    #def MyQtimer(self):#PyQt5.QtCore_QTimer_Real-time Show
+        #timer = QTimer(self)
+        #timer.timeout.connect(self.Real_time_Display_Func)
+        #timer.start(100)#100ms
     def Real_time_Display_Func(self):
         self.label_sys_log.setText(globalvar.get_value("sys_log"))
         self.label_Receive_Enable.setText(str(globalvar.get_value("tcp_socket"))+"\n"
                                           +"Receive_Enable:"+str(globalvar.get_value("Receive_Enable")))
         self.lineEdit_Receive_Message.setText(globalvar.get_value("Receive_Message"))
-        #print("This_is_def Real_time_Display_Func(self):")
+        #textBrowser_sys_log
+        #self.textBrowser_sys_log.append("Hello world")#文本框逐条添加数据
+        #self.textBrowser_sys_log.moveCursor(self.textBrowser_sys_log.textCursor().End)#文本框显示到底部
 
 if __name__ == '__main__':
   #全局变量初始化...
