@@ -35,7 +35,7 @@ def TCP_Socket_tool():
             globalvar.set_value("Receive_Enable", False)  # Reset_Receive_Enable
             try:
                 tcp_socket.close()
-            #UnboundLocalError: local variable'tcp_socket'referenced before assignment
+            #UnboundLocalError:local variable'tcp_socket'referenced before assignment
             except UnboundLocalError:
                 print("TCP_Socket_close is UnboundLocalError...")
 

@@ -24,5 +24,3 @@ def TCP_Socket_Receive():
             globalvar.set_value("Receive", False)
 
         time.sleep(0.1)#0.1s
-#「LittleHUANG: 窗口命名-ok 部件命名-ok 创建套接字-ok 初始值设定-ok Try...-ok 按钮取消-ok
-# 进程中断-ok 简化Qtimer 实时消息栏」

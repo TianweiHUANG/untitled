@@ -157,7 +157,7 @@ from TCP_Socket_Receive import TCP_Socket_Receive
 import sys
 from TCP_Socket_tool_gui import Ui_Dialog
 from PyQt5.QtWidgets import QApplication,QDialog
-from PyQt5.QtCore import QTimer #PyQt5.QtCore_QTimer_Real-time Show
+from PyQt5.QtCore import QTimer#PyQt5.QtCore_QTimer_Real-time Show
 
 class MyDialog(QDialog,Ui_Dialog):
     def __init__(self,parent=None):
@@ -180,7 +180,7 @@ class MyDialog(QDialog,Ui_Dialog):
         self.pushButton_Send.clicked.connect(self.pushButton_Send_Func)
 
         #self.MyQtimer()#PyQt5.QtCore_QTimer_Real-time Show
-        self.MyQtimer = QTimer(self)
+        self.MyQtimer=QTimer(self)
         self.MyQtimer.start(100)#100ms
         self.MyQtimer.timeout.connect(self.Real_time_Display_Func)
 
@@ -199,7 +199,7 @@ class MyDialog(QDialog,Ui_Dialog):
         globalvar.set_value("Send",True)
 
     #def MyQtimer(self):#PyQt5.QtCore_QTimer_Real-time Show
-        #timer = QTimer(self)
+        #timer=QTimer(self)
         #timer.timeout.connect(self.Real_time_Display_Func)
         #timer.start(100)#100ms
     def Real_time_Display_Func(self):
