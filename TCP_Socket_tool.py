@@ -32,14 +32,17 @@ def TCP_Socket_tool():
             globalvar.set_value("sys_log", "Tcp socket is connecting...")
 
             #解决方式：connect之前tcp_socket.close()。
-            globalvar.set_value("Receive_Enable", False)  # Reset_Receive_Enable
+            globalvar.set_value("Receive_Enable", False)#Reset_Receive_Enable
             try:
+                tcp_socket.shutdown(socket.SHUT_RDWR)
                 tcp_socket.close()
             #UnboundLocalError:local variable'tcp_socket'referenced before assignment
-            except UnboundLocalError:
+            #except UnboundLocalError:
+            except :
                 print("TCP_Socket_close is UnboundLocalError...")
 
             tcp_socket=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            #tcp_socket.bind(("192.168.1.210",1234))
             globalvar.set_value("tcp_socket",tcp_socket)#set_tcp_socket
             dest_ip=globalvar.get_value("Server_IP")
             dest_port=int(globalvar.get_value("Server_PORT"))
@@ -82,6 +85,7 @@ def TCP_Socket_tool():
             globalvar.set_value("Receive_Enable", False)#Reset_Receive_Enable
             globalvar.set_value("sys_log", "Tcp socket is closing...")
 
+            tcp_socket.shutdown(socket.SHUT_RDWR)
             tcp_socket.close()
 
             print(globalvar.get_value("Server_IP"), globalvar.get_value("Server_PORT"),

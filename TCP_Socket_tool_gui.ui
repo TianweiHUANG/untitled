@@ -144,19 +144,6 @@
     <string>Receive_Message</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_sys_log">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>180</y>
-     <width>511</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>TextLabel</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
@@ -203,6 +190,16 @@
      <y>220</y>
      <width>501</width>
      <height>241</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_sys_log">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>190</y>
+     <width>501</width>
+     <height>21</height>
     </rect>
    </property>
   </widget>

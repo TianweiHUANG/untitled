@@ -19,7 +19,8 @@ def TCP_Socket_Receive():
 
             #ConnectionAbortedError:[WinError 10053]您的主机中的软件中止了一个已建立的连接。
             #AttributeError:'str'object has no attribute'decode'
-            except ConnectionAbortedError:
+            #except ConnectionAbortedError:
+            except :
                 print("TCP_Socket_Receive is ConnectionAbortedError...")
             globalvar.set_value("Receive", False)
 
