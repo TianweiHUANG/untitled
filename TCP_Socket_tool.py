@@ -96,6 +96,7 @@ def TCP_Socket_tool():
                       globalvar.get_value("Send_Message"),globalvar.get_value("Receive_Message"),"Close=True")
                 globalvar.set_value("sys_log", "Tcp socket closed...")
                 globalvar.set_value("Close", False)
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
         elif globalvar.get_value("TCP_select")=="As TCP Server":
             # tcp_socket=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             # connect之后不能再次创建socket，否则将自动Close。

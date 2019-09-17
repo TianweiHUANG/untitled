@@ -24,6 +24,7 @@ def TCP_Socket_Receive():
                 except:
                     print("TCP_Socket_Receive is ConnectionAbortedError...")
                 globalvar.set_value("Receive", False)
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
         elif globalvar.get_value("TCP_select") == "As TCP Server":
             # 3.接收数据
             if globalvar.get_value("Receive_Enable") == True:
