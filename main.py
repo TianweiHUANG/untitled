@@ -212,7 +212,7 @@ class MyDialog(QDialog,Ui_Dialog):
             self.pushButton_TCP_select.setText("As TCP Client")
             globalvar.set_value("sys_log","TCP_select:As TCP Client")
             print("TCP_select:As TCP Client")
-        else:#globalvar.get_value("TCP_select")=="As TCP Client":
+        elif globalvar.get_value("TCP_select")=="As TCP Client":
             globalvar.set_value("TCP_select", "As TCP Server")
             self.pushButton_TCP_select.setText("As TCP Server")
             globalvar.set_value("sys_log", "TCP_select:As TCP Server")
