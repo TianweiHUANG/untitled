@@ -60,6 +60,9 @@ class Ui_Dialog(object):
         self.lineEdit_sys_log = QtWidgets.QLineEdit(Dialog)
         self.lineEdit_sys_log.setGeometry(QtCore.QRect(20, 190, 501, 21))
         self.lineEdit_sys_log.setObjectName("lineEdit_sys_log")
+        self.pushButton_TCP_select = QtWidgets.QPushButton(Dialog)
+        self.pushButton_TCP_select.setGeometry(QtCore.QRect(410, 160, 111, 23))
+        self.pushButton_TCP_select.setObjectName("pushButton_TCP_select")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -77,4 +80,5 @@ class Ui_Dialog(object):
         self.label_5.setText(_translate("Dialog", "sys_log"))
         self.label_Receive_Enable.setText(_translate("Dialog", "TextLabel"))
         self.label_6.setText(_translate("Dialog", "___________________________________________________________________________________"))
+        self.pushButton_TCP_select.setText(_translate("Dialog", "As TP Client"))
 

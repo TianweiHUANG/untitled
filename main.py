@@ -179,6 +179,7 @@ class MyDialog(QDialog,Ui_Dialog):
         self.pushButton_Connect.clicked.connect(self.pushButton_Connect_Func)
         self.pushButton_Close.clicked.connect(self.pushButton_Close_Func)
         self.pushButton_Send.clicked.connect(self.pushButton_Send_Func)
+        self.pushButton_TCP_select.clicked.connect(self.pushButton_TCP_select_Func)
         #self.MyQtimer()#PyQt5.QtCore_QTimer_Real-time Show
         self.MyQtimer=QTimer(self)
         self.MyQtimer.start(100)#100ms
@@ -205,6 +206,17 @@ class MyDialog(QDialog,Ui_Dialog):
         #timer=QTimer(self)
         #timer.timeout.connect(self.Real_time_Display_Func)
         #timer.start(100)#100ms
+    def pushButton_TCP_select_Func(self):
+        if globalvar.get_value("TCP_select")=="As TCP Server":
+            globalvar.set_value("TCP_select","As TCP Client")
+            self.pushButton_TCP_select.setText("As TCP Client")
+            globalvar.set_value("sys_log","TCP_select:As TCP Client")
+            print("TCP_select:As TCP Client")
+        else:#globalvar.get_value("TCP_select")=="As TCP Client":
+            globalvar.set_value("TCP_select", "As TCP Server")
+            self.pushButton_TCP_select.setText("As TCP Server")
+            globalvar.set_value("sys_log", "TCP_select:As TCP Server")
+            print("TCP_select:As TCP Server")
     def Real_time_Display_Func(self):
         #self.label_sys_log.setText(globalvar.get_value("sys_log"))
         self.lineEdit_sys_log.setText(globalvar.get_value("sys_log"))#textBrowser_sys_log
@@ -217,8 +229,9 @@ if __name__ == '__main__':
   globalvar._init()
   globalvar.set_value("Server_IP", "192.168.1.200")
   globalvar.set_value("Server_PORT", "60000")
-  globalvar.set_value("send_Message", "Hello ADLink_iPC")
+  globalvar.set_value("send_Message", "Hello adlink_iPC")
   globalvar.set_value("Receive_Enable", False)#Reset_Receive_Enable
+  globalvar.set_value("TCP_select","As TCP Client")
 
   TCP_Socket_tool_Thread = threading.Thread(target=TCP_Socket_tool)
   TCP_Socket_Receive_Thread = threading.Thread(target=TCP_Socket_Receive)

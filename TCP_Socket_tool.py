@@ -38,7 +38,7 @@ def TCP_Socket_tool():
                 tcp_socket.close()
             #UnboundLocalError:local variable'tcp_socket'referenced before assignment
             #except UnboundLocalError:
-            except :
+            except:
                 print("TCP_Socket_close is UnboundLocalError...")
 
             tcp_socket=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -85,8 +85,11 @@ def TCP_Socket_tool():
             globalvar.set_value("Receive_Enable", False)#Reset_Receive_Enable
             globalvar.set_value("sys_log", "Tcp socket is closing...")
 
-            tcp_socket.shutdown(socket.SHUT_RDWR)
-            tcp_socket.close()
+            try:
+               tcp_socket.shutdown(socket.SHUT_RDWR)
+               tcp_socket.close()
+            except OSError:
+               print("TCP_Socket_close is OSError...")
 
             print(globalvar.get_value("Server_IP"), globalvar.get_value("Server_PORT"),
                   globalvar.get_value("Send_Message"),globalvar.get_value("Receive_Message"),"Close=True")
