@@ -223,6 +223,8 @@ class MyDialog(QDialog,Ui_Dialog):
         self.label_Receive_Enable.setText(str(globalvar.get_value("tcp_socket"))+"\n"
                                           +"Receive_Enable:"+str(globalvar.get_value("Receive_Enable")))
         self.lineEdit_Receive_Message.setText(globalvar.get_value("Receive_Message"))
+    def call_MyDialogclass_method(self,say_words):
+        print(say_words)
 
 if __name__ == '__main__':
   #全局变量初始化...
@@ -242,5 +244,7 @@ if __name__ == '__main__':
 
   myApp = QApplication(sys.argv)
   myWindow = MyDialog()
+  globalvar.set_value("myWindow",myWindow)
+  #myWindow.call_MyDialogclass_method()
   myWindow.show()
   sys.exit(myApp.exec_())
