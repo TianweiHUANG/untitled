@@ -1,25 +1,7 @@
 import time
 import globalvar
 import socket
-"""
->>> import socket
->>> tcp_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
->>> tcp_socket.connect(("192.168.1.101", 1234))
->>> tcp_socket.close()
->>> tcp_socket.connect(("192.168.1.101", 1234))
-Traceback (most recent call last):
-  File "<pyshell#4>", line 1, in <module>
-    tcp_socket.connect(("192.168.1.101", 1234))
-OSError: [WinError 10038] 在一个非套接字上尝试了一个操作。
->>> #Close之后必须重新创建socket，否则无法重新connect。
-"""
-"""
->>> import socket
->>> tcp_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
->>> tcp_socket.connect(("192.168.1.101", 1234))
->>> tcp_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
->>> #connect之后不能再次创建socket，否则将自动Close。
-"""
+
 def TCP_Socket_tool():
     while True:
         if globalvar.get_value("TCP_select")=="As TCP Client":
@@ -36,7 +18,7 @@ def TCP_Socket_tool():
                     print("TCP_Socket_Connect As TCP Client is Error...")
 
                 tcp_socket=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                globalvar.set_value("tcp_socket",tcp_socket)#set_tcp_socket
+                globalvar.set_value("tcp_socket",tcp_socket)
                 dest_ip=globalvar.get_value("Server_IP")
                 dest_port=int(globalvar.get_value("Server_PORT"))
                 dest_addr=(dest_ip,dest_port)
@@ -44,7 +26,7 @@ def TCP_Socket_tool():
 
                 myWindow.printf_sys_log_Func("Tcp socket connected...")
                 globalvar.set_value("Connect", False)
-                globalvar.set_value("Receive_Enable",True)#Set_Receive_Enable
+                globalvar.set_value("Receive_Enable",True)
             #2.发送数据
             if globalvar.get_value("Send")==True:
                 myWindow = globalvar.get_value("myWindow")
