@@ -60,14 +60,14 @@ class MyDialog(QDialog,Ui_Dialog):
 
     def printf_sys_log_Func(self,sys_log_str):
         self.textBrowser_sys_log.append(time.strftime("%Y-%m-%d %H:%M:%S ",time.localtime())+sys_log_str)#文本框逐条添加数据
-        #self.textBrowser_sys_log.moveCursor(self.textBrowser_sys_log.textCursor().End)#文本框显示到底部
+        self.textBrowser_sys_log.moveCursor(self.textBrowser_sys_log.textCursor().End)#文本框显示到底部
         #print(sys_log_str)
 
 if __name__ == '__main__':
   #全局变量初始化...
   globalvar._init()
   globalvar.set_value("TCP_select", "As TCP Client")
-  globalvar.set_value("Server_IP", "192.168.43.1")
+  globalvar.set_value("Server_IP", "192.168.1.101")
   globalvar.set_value("Server_PORT", "1234")
   globalvar.set_value("send_Message", "Hello vivo_X21A")
   globalvar.set_value("Receive_Enable", False)
