@@ -9,7 +9,6 @@ def TCP_Socket_tool():
             if globalvar.get_value("Connect")==True:
                 myWindow = globalvar.get_value("myWindow")
                 myWindow.printf_sys_log_Func("Tcp socket is connecting...")
-
                 globalvar.set_value("Receive_Enable", False)
                 try:
                     tcp_socket.shutdown(socket.SHUT_RDWR)
@@ -24,9 +23,9 @@ def TCP_Socket_tool():
                 dest_addr=(dest_ip,dest_port)
                 tcp_socket.connect(dest_addr)
 
-                myWindow.printf_sys_log_Func("Tcp socket connected...")
-                globalvar.set_value("Connect", False)
                 globalvar.set_value("Receive_Enable",True)
+                globalvar.set_value("Connect", False)
+                myWindow.printf_sys_log_Func("Tcp socket connected...")
             #2.发送数据
             if globalvar.get_value("Send")==True:
                 myWindow = globalvar.get_value("myWindow")
@@ -35,13 +34,13 @@ def TCP_Socket_tool():
                 send_data=globalvar.get_value("send_Message")
                 tcp_socket.send(send_data.encode("utf-8"))
 
-                myWindow.printf_sys_log_Func("Tcp socket sended...")
                 globalvar.set_value("Send", False)
+                myWindow.printf_sys_log_Func("Tcp socket sended...")
             #4.关闭套接字socket
             if globalvar.get_value("Close")==True:
-                globalvar.set_value("Receive_Enable", False)
                 myWindow = globalvar.get_value("myWindow")
                 myWindow.printf_sys_log_Func("Tcp socket is closing...")
+                globalvar.set_value("Receive_Enable", False)
 
                 try:
                    tcp_socket.shutdown(socket.SHUT_RDWR)
@@ -49,11 +48,11 @@ def TCP_Socket_tool():
                 except OSError:
                    print("TCP_Socket_close As TCP Client is Error...")
 
-                myWindow.printf_sys_log_Func("Tcp socket closed...")
                 globalvar.set_value("Close", False)
+                myWindow.printf_sys_log_Func("Tcp socket closed...")
 ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
         elif globalvar.get_value("TCP_select")=="As TCP Server":
-
+            #1.创建套接字socket,连接客户端
             if globalvar.get_value("Connect") == True:
                 myWindow = globalvar.get_value("myWindow")
                 myWindow.printf_sys_log_Func("Tcp socket is connecting...")
@@ -71,12 +70,12 @@ def TCP_Socket_tool():
                 globalvar.set_value("client_socket",client_socket)
                 globalvar.set_value("client_addr", client_addr)
 
-                myWindow.printf_sys_log_Func(str(client_socket))
-                myWindow.printf_sys_log_Func(str(client_addr))
-                myWindow.printf_sys_log_Func("Tcp socket connected...")
-                globalvar.set_value("Connect", False)
                 globalvar.set_value("Receive_Enable", True)
-
+                globalvar.set_value("Connect", False)
+                #myWindow.printf_sys_log_Func(str(client_socket))
+                #myWindow.printf_sys_log_Func(str(client_addr))
+                myWindow.printf_sys_log_Func("Tcp socket connected...")
+            #2.发送数据
             if globalvar.get_value("Send") == True:
                 myWindow = globalvar.get_value("myWindow")
                 myWindow.printf_sys_log_Func("Tcp socket is sending...")
@@ -84,15 +83,15 @@ def TCP_Socket_tool():
                 send_data = globalvar.get_value("send_Message")
                 client_socket.send(send_data.encode("utf-8"))
 
-                myWindow.printf_sys_log_Func(str(client_socket))
-                myWindow.printf_sys_log_Func(str(client_addr))
-                myWindow.printf_sys_log_Func("Tcp socket sended...")
                 globalvar.set_value("Send", False)
-
+                #myWindow.printf_sys_log_Func(str(client_socket))
+                #myWindow.printf_sys_log_Func(str(client_addr))
+                myWindow.printf_sys_log_Func("Tcp socket sended...")
+            #4.关闭套接字socket
             if globalvar.get_value("Close") == True:
-                globalvar.set_value("Receive_Enable", False)
                 myWindow = globalvar.get_value("myWindow")
                 myWindow.printf_sys_log_Func("Tcp socket is closing...")
+                globalvar.set_value("Receive_Enable", False)
 
                 try:
                     client_socket.shutdown(socket.SHUT_RDWR)
@@ -102,9 +101,9 @@ def TCP_Socket_tool():
                 except OSError:
                     print("TCP_Socket_close As TCP Server is Error...")
 
-                myWindow.printf_sys_log_Func(str(client_socket))
-                myWindow.printf_sys_log_Func(str(client_addr))
-                myWindow.printf_sys_log_Func("Tcp socket closed...")
                 globalvar.set_value("Close", False)
+                #myWindow.printf_sys_log_Func(str(client_socket))
+                #myWindow.printf_sys_log_Func(str(client_addr))
+                myWindow.printf_sys_log_Func("Tcp socket closed...")
 
         time.sleep(0.1)

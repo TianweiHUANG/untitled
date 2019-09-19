@@ -16,12 +16,12 @@ def TCP_Socket_Receive():
                     globalvar.set_value("Receive_Message", recv_data.decode("utf-8"))
 
                     myWindow.printf_sys_log_Func("Tcp socket received...")
-
                 except:
                     print("TCP_Socket_Receive As TCP Client is Error...")
                 globalvar.set_value("Receive", False)
 ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
         elif globalvar.get_value("TCP_select") == "As TCP Server":
+            #3.接收数据
             if globalvar.get_value("Receive_Enable") == True:
                 try:
                     myWindow = globalvar.get_value("myWindow")
@@ -32,8 +32,8 @@ def TCP_Socket_Receive():
                     recv_data = client_socket.recv(1024)
                     globalvar.set_value("Receive_Message", recv_data.decode("utf-8"))
 
-                    myWindow.printf_sys_log_Func(str(client_socket))
-                    myWindow.printf_sys_log_Func(str(client_addr))
+                    #myWindow.printf_sys_log_Func(str(client_socket))
+                    #myWindow.printf_sys_log_Func(str(client_addr))
                     myWindow.printf_sys_log_Func("Tcp socket received...")
                 except:
                     print("TCP_Socket_Receive As TCP Server is Error...")

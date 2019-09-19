@@ -59,16 +59,18 @@ class MyDialog(QDialog,Ui_Dialog):
         self.lineEdit_Receive_Message.setText(globalvar.get_value("Receive_Message"))
 
     def printf_sys_log_Func(self,sys_log_str):
-        self.textBrowser_sys_log.append(time.strftime("%Y-%m-%d %H:%M:%S ",time.localtime())+sys_log_str)#文本框逐条添加数据
+        self.textBrowser_sys_log.append(time.strftime("%Y-%m-%d %H:%M:%S ",time.localtime())
+                                        +globalvar.get_value("TCP_select")+":"
+                                        +sys_log_str)#文本框逐条添加数据
         self.textBrowser_sys_log.moveCursor(self.textBrowser_sys_log.textCursor().End)#文本框显示到底部
-        #print(sys_log_str)
+        #print(globalvar.set_value("TCP_select")+":"+sys_log_str)
 
 if __name__ == '__main__':
   #全局变量初始化...
   globalvar._init()
   globalvar.set_value("TCP_select", "As TCP Client")
-  globalvar.set_value("Server_IP", "192.168.1.101")
-  globalvar.set_value("Server_PORT", "1234")
+  globalvar.set_value("Server_IP", "192.168.1.200")
+  globalvar.set_value("Server_PORT", "60000")
   globalvar.set_value("send_Message", "Hello vivo_X21A")
   globalvar.set_value("Receive_Enable", False)
 
@@ -81,6 +83,7 @@ if __name__ == '__main__':
 
   myApp = QApplication(sys.argv)
   myWindow = MyDialog()
-  globalvar.set_value("myWindow",myWindow)
+  globalvar.set_value("myWindow",myWindow)#实例化对象
+  print(globalvar.get_value("myWindow"))#实例化对象
   myWindow.show()
   sys.exit(myApp.exec_())
