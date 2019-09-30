@@ -32,10 +32,10 @@ print("每月应还本息",monthPIPayment_list)
 #print("每月应还本息{}".format(round(monthPIPayment,2)))
 
 ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
-# 每月应还利息
-monthInterestPayment = [round(loan*monthRate,2)]
 # 每月欠款余额
 loanPI = [loan*(1+monthRate)-monthPIPayment]#?
+# 每月应还利息
+monthInterestPayment = [round(loan*monthRate,2)]
 for n in range(1, period*12):
     loanPI.append((loanPI[n-1]*(1+monthRate)-monthPIPayment))
     monthInterestPayment.append(round(loanPI[n-1] * monthRate,2))
