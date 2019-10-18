@@ -36,7 +36,6 @@ print("$$$$$$ $$$$$$ $$$$$$ 等额本息-list $$$$$$ $$$$$$ $$$$$$")
 month_list_Type1 = [n for n in range(1,period*12+1)]
 # 每月应还本息
 monthPiPayment_list_Type1=[(loan*monthRate*(1+monthRate)**(period*12))/((1+monthRate)**(period*12)-1) for n in range(1,period*12+1)]
-
 # 每月应还利息
 monthInterestPayment_list_Type1 = [loan*monthRate]
 # 每月应还本金
@@ -109,7 +108,6 @@ print("$$$$$$ $$$$$$ $$$$$$ 等额本息-list $$$$$$ $$$$$$ $$$$$$")
 month_list_Type1 = [n for n in range(1,period*12+1)]
 # 每月应还本息
 monthPiPayment_list_Type1=[(loan*monthRate*(1+monthRate)**(period*12))/((1+monthRate)**(period*12)-1) for n in range(1,period*12+1)]
-
 # 每月应还利息
 monthInterestPayment_list_Type1 = [loan*monthRate]
 # 每月应还本金
@@ -141,14 +139,33 @@ for n in range(0, period*12):
     print(month_list_Type1[n], monthPiPayment_list_Type1[n], monthPrincipalPayment_list_Type1[n], monthInterestPayment_list_Type1[n], monthPrincipalBalance_list_Type1[n])
 
 # % matplotlib inline
+# import matplotlib.pyplot as plt
+# plt.rcParams['font.sans-serif']=['SimHei'] #用来正常显示中文标签
+# plt.rcParams['axes.unicode_minus']=False #用来正常显示负号
+# plt.style.use("fivethirtyeight")
+
 f,ax=plt.subplots(figsize=(10,6))
 l1 = plt.bar(month_list_Type0,monthPiPayment_list_Type0,color='b',width=0.4)
 l2 = plt.bar(month_list_Type0,monthPrincipalPayment_list_Type0,color='r',width=0.4)
-l3 = plt.bar(month_list_Type1,monthPiPayment_list_Type1,color='y',width=0.4)
-l4 = plt.bar(month_list_Type1,monthPrincipalPayment_list_Type1,color='g',width=0.4)
+# l1 = plt.bar(month_list_Type1,monthPiPayment_list_Type1,color='y',width=0.4)
+# l2 = plt.bar(month_list_Type1,monthPrincipalPayment_list_Type1,color='g',width=0.4)
 plt.xlabel("还款期数/月",size=20) #设置x轴标签
 plt.ylabel("还款金额/元",size=20) #设置y轴标签
+plt.title("Type:等额本金",size=20) #设置标题
+# plt.title("Type:等额本息",size=20) #设置标题
+plt.tick_params(labelsize=20) #设置刻度参数
+plt.legend(handles = [l1,l2], labels = ["利息","本金"], loc = 'best',fontsize=20) #设置注解
+plt.show()
+
+f,ax=plt.subplots(figsize=(10,6))
+# l1 = plt.bar(month_list_Type0,monthPiPayment_list_Type0,color='b',width=0.4)
+# l2 = plt.bar(month_list_Type0,monthPrincipalPayment_list_Type0,color='r',width=0.4)
+l1 = plt.bar(month_list_Type1,monthPiPayment_list_Type1,color='y',width=0.4)
+l2 = plt.bar(month_list_Type1,monthPrincipalPayment_list_Type1,color='g',width=0.4)
+plt.xlabel("还款期数/月",size=20) #设置x轴标签
+plt.ylabel("还款金额/元",size=20) #设置y轴标签
+# plt.title("Type:等额本金",size=20) #设置标题
 plt.title("Type:等额本息",size=20) #设置标题
 plt.tick_params(labelsize=20) #设置刻度参数
-plt.legend(handles = [l1, l2,l3,l4], labels = ["利息","本金"], loc = 'best',fontsize=20) #设置注解
+plt.legend(handles = [l1,l2], labels = ["利息","本金"], loc = 'best',fontsize=20) #设置注解
 plt.show()
