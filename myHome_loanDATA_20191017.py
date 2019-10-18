@@ -3,7 +3,7 @@ annualRate = 0.049 # 贷款年利率
 monthRate = annualRate/12 # 贷款月利率
 period = 30 # 贷款期限30年
 
-print("###### ###### ###### ###### ###### ###### 等额本金_List ###### ###### ###### ###### ###### ######")
+print("$$$$$$ $$$$$$ $$$$$$ 等额本金-list $$$$$$ $$$$$$ $$$$$$")
 # 还款期数
 month_list_Type0 = [n for n in range(1,period*12+1)]
 # 每月应还本金
@@ -21,17 +21,16 @@ for n in range(0, period*12):
     monthInterestPayment_list_Type0[n] = round(monthInterestPayment_list_Type0[n], 2)
     monthPiPayment_list_Type0[n] = round(monthPiPayment_list_Type0[n], 2)
     monthPrincipalBalance_list_Type0[n] = round(monthPrincipalBalance_list_Type0[n], 2)
-print("还款期数",month_list_Type0)
-print("每月应还本金",monthPrincipalPayment_list_Type0)
-print("每月应还利息",monthInterestPayment_list_Type0)
-print("每月应还本息",monthPiPayment_list_Type0)
-print("每月本金余额",monthPrincipalBalance_list_Type0)
-
+# print("还款期数",month_list_Type0)
+# print("每月应还本金",monthPrincipalPayment_list_Type0)
+# print("每月应还利息",monthInterestPayment_list_Type0)
+# print("每月应还本息",monthPiPayment_list_Type0)
+# print("每月本金余额",monthPrincipalBalance_list_Type0)
 print("期数","月供","月供本金","月供利息","本金余额")
 for n in range(0, period*12):
     print(month_list_Type0[n], monthPiPayment_list_Type0[n], monthPrincipalPayment_list_Type0[n], monthInterestPayment_list_Type0[n], monthPrincipalBalance_list_Type0[n])
 
-print("###### ###### ###### ###### ###### ###### 等额本息_List ###### ###### ###### ###### ###### ######")
+print("$$$$$$ $$$$$$ $$$$$$ 等额本息-list $$$$$$ $$$$$$ $$$$$$")
 # 还款期数
 month_list_Type1 = [n for n in range(1,period*12+1)]
 # 每月应还本息
@@ -58,12 +57,11 @@ for n in range(0, period*12):
     monthInterestPayment_list_Type1[n] = round(monthInterestPayment_list_Type1[n], 2)
     monthPiPayment_list_Type1[n] = round(monthPiPayment_list_Type1[n], 2)
     monthPrincipalBalance_list_Type1[n] = round(monthPrincipalBalance_list_Type1[n], 2)
-print("还款期数",month_list_Type1)
-print("每月应还本金",monthPrincipalPayment_list_Type1)
-print("每月应还利息",monthInterestPayment_list_Type1)
-print("每月应还本息",monthPiPayment_list_Type1)
-print("每月本金余额",monthPrincipalBalance_list_Type1)
-
+# print("还款期数",month_list_Type1)
+# print("每月应还本金",monthPrincipalPayment_list_Type1)
+# print("每月应还利息",monthInterestPayment_list_Type1)
+# print("每月应还本息",monthPiPayment_list_Type1)
+# print("每月本金余额",monthPrincipalBalance_list_Type1)
 print("期数","月供","月供本金","月供利息","本金余额")
 for n in range(0, period*12):
     print(month_list_Type1[n], monthPiPayment_list_Type1[n], monthPrincipalPayment_list_Type1[n], monthInterestPayment_list_Type1[n], monthPrincipalBalance_list_Type1[n])
