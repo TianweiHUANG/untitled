@@ -145,7 +145,7 @@ for n in range(0, period*12):
 # plt.style.use("fivethirtyeight")
 
 f,ax=plt.subplots(figsize=(15,6))
-plt.subplot(121)#plt.subplot(numrows, numcols, fignum)
+plt.subplot(1,2,1)#plt.subplot(numrows, numcols, fignum)
 plt.ylim(0,5000)
 l1 = plt.bar(month_list_Type0,monthPiPayment_list_Type0,color='b',width=0.4)
 l2 = plt.bar(month_list_Type0,monthPrincipalPayment_list_Type0,color='r',width=0.4)
@@ -154,7 +154,7 @@ plt.ylabel("还款金额/元",size=10) #设置y轴标签
 plt.title("Type:等额本金",size=15) #设置标题
 plt.tick_params(labelsize=10) #设置刻度参数
 plt.legend(handles = [l1,l2], labels = ["利息","本金"], loc = 'best',fontsize=12) #设置注解
-plt.subplot(122)#plt.subplot(numrows, numcols, fignum)
+plt.subplot(1,2,2)#plt.subplot(numrows, numcols, fignum)
 plt.ylim(0,5000)
 l1 = plt.bar(month_list_Type1,monthPiPayment_list_Type1,color='y',width=0.4)
 l2 = plt.bar(month_list_Type1,monthPrincipalPayment_list_Type1,color='g',width=0.4)
