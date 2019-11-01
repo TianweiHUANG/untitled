@@ -22,7 +22,7 @@ n = Neuron(weights, bias)
 x = np.array([2, 3])       # x1 = 2, x2 = 3
 print(n.feedforward(x))    # 0.9990889488055994
 ### ### ### ### ### ### ### ### ### ### ### ### 2/4 ### ### ### ### ### ### ### ### ### ### ### ###
-# import numpy as np
+import numpy as np
 
 # ... code from previous section here
 
@@ -58,7 +58,7 @@ network = OurNeuralNetwork()
 x = np.array([2, 3])
 print(network.feedforward(x)) # 0.7216325609518421
 ### ### ### ### ### ### ### ### ### ### ### ### 3/4 ### ### ### ### ### ### ### ### ### ### ### ###
-# import numpy as np
+import numpy as np
 
 def mse_loss(y_true, y_pred):
   # y_true and y_pred are numpy arrays of the same length.
@@ -66,7 +66,6 @@ def mse_loss(y_true, y_pred):
 
 y_true = np.array([1, 0, 0, 1])
 y_pred = np.array([0, 0, 0, 0])
-
 print(mse_loss(y_true, y_pred)) # 0.5
 """
 ### ### ### ### ### ### ### ### ### ### ### ### 4/4 ### ### ### ### ### ### ### ### ### ### ### ###
@@ -197,6 +196,7 @@ all_y_trues = np.array([
   0, # Charlie
   1, # Diana
 ])
+
 # Train our neural network!
 network = OurNeuralNetwork()
 network.train(data, all_y_trues)
