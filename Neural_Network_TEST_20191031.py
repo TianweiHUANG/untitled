@@ -124,7 +124,7 @@ class OurNeuralNetwork:
       Elements in all_y_trues correspond to those in data.
     '''
     learn_rate = 0.1
-    epochs = 1000 # number of times to loop through the entire dataset
+    epochs = 10000 # number of times to loop through the entire dataset
 
     for epoch in range(epochs):
       for x, y_true in zip(data, all_y_trues):
@@ -178,7 +178,7 @@ class OurNeuralNetwork:
         self.b3 -= learn_rate * d_L_d_ypred * d_ypred_d_b3
 
       # --- Calculate total loss at the end of each epoch
-      if epoch % 10 == 0:
+      if epoch % 100 == 0:
         y_preds = np.apply_along_axis(self.feedforward, 1, data)
         loss = mse_loss(all_y_trues, y_preds)
         print("Epoch %d loss: %.3f" % (epoch, loss))
@@ -204,4 +204,4 @@ network.train(data, all_y_trues)
 emily = np.array([-7, -3]) # 128 pounds, 63 inches
 frank = np.array([20, 2])  # 155 pounds, 68 inches
 print("Emily: %.3f" % network.feedforward(emily)) # 0.951 - F
-prin t("Frank: %.3f" % network.feedforward(frank)) # 0.039 - M
+print("Frank: %.3f" % network.feedforward(frank)) # 0.039 - M
