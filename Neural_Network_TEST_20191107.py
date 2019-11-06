@@ -5,13 +5,13 @@ import numpy
 
 img = skimage.data.chelsea()
 matplotlib.image.imsave('Neural_Network_img.png', img)
-plt.imshow(img) #Needs to be in row,col order
+plt.imshow(img)
 plt.savefig("Neural_Network_img_plt.png")
 print(img)
 
 img = skimage.color.rgb2gray(img)
 matplotlib.image.imsave('Neural_Network_img_gray.png', img)
-plt.imshow(img) #Needs to be in row,col order
+plt.imshow(img)
 plt.savefig("Neural_Network_img_gray_plt.png")
 print(img)
 
