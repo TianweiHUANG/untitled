@@ -28,5 +28,4 @@ class MaxPool2:
 
     for im_region, i, j in self.iterate_regions(input):
       output[i, j] = np.amax(im_region, axis=(0, 1))
-
     return output

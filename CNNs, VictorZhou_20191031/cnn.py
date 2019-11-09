@@ -8,8 +8,8 @@ from softmax import Softmax
 # in the interest of time. Feel free to change this if you want.
 # test_images = mnist.test_images()[:1000]
 # test_labels = mnist.test_labels()[:1000]
-test_images = mnist.train_images()[:1000]
-test_labels = mnist.train_labels()[:1000]
+train_images = mnist.train_images()[:1000]
+train_labels = mnist.train_labels()[:1000]
 
 conv = Conv3x3(8)                  # 28x28x1 -> 26x26x8
 pool = MaxPool2()                  # 26x26x8 -> 13x13x8
@@ -38,7 +38,8 @@ print('MNIST CNN initialized!')
 
 loss = 0
 num_correct = 0
-for i, (im, label) in enumerate(zip(test_images, test_labels)):
+# for i, (im, label) in enumerate(zip(test_images, test_labels)):
+for i, (im, label) in enumerate(zip(train_images, train_labels)):
   # Do a forward pass.
   _, l, acc = forward(im, label)
   loss += l
