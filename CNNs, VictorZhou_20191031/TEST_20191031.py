@@ -12,7 +12,7 @@ print(type(train_labels),train_labels.shape)
 test_images = mnist.test_images()[:1000]
 test_labels = mnist.test_labels()[:1000]
 """
-
+"""
 import numpy as np
 
 # train_images = np.array([[[1,2,3], [4,5,6], [7,8,9]],[[10,20,30], [40,50,60], [70,80,90]],[[100,200,300], [400,500,600], [700,800,900]]])
@@ -28,8 +28,8 @@ for i, (im, label) in enumerate(zip(train_images, train_labels)):
     print("i:=",type(i),i)
     print("im:=",type(im),im)
     print("label:=",type(label),label)
-
 """
+
 import mnist
 from conv import Conv3x3
 from maxpool import MaxPool2
@@ -60,4 +60,3 @@ print("Softmax(input_len:=13 * 13 * 8, nodes:=10)")
 out = softmax.forward(out)
 print(out)
 print(out.shape)
-"""
