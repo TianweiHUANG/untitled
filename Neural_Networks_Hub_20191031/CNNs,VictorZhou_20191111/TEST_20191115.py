@@ -4,7 +4,7 @@
 # 04$.@ 白手起家的百万富翁-MLP
 # 05$.@ <<Tensorflow 实战>>
 # -正态分布 -softmax -交叉熵
-"""
+
 import mnist
 import numpy as np
 
@@ -17,11 +17,11 @@ print(type(train_images),train_images.shape)
 print(train_labels)
 print(type(train_labels),train_labels.shape)
 
-for i, (im, label) in enumerate(zip(train_images, train_labels)):
-    print("------ ------ ------")
-    print("i:=",type(i),i)
-    print("im:=",type(im),im)
-    print("label:=",type(label),label)
+# for i, (im, label) in enumerate(zip(train_images, train_labels)):
+#     print("------ ------ ------")
+#     print("i:=",type(i),i)
+#     print("im:=",type(im),im)
+#     print("label:=",type(label),label)
 
 """
 import mnist
@@ -60,3 +60,4 @@ label = mnist.train_labels()[0]
 loss = -np.log(out[label])
 acc = 1 if np.argmax(out) == label else 0
 print("label:=",label,"label.shape:=",label.shape,"acc:=",acc,"loss:=",loss)
+"""
