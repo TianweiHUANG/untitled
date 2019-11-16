@@ -1,19 +1,19 @@
-import mnist # ok
-import numpy as np # ok
-from conv import Conv3x3 # ok
-from maxpool import MaxPool2 # ok
-from softmax import Softmax # ok
+import mnist
+import numpy as np
+from conv import Conv3x3
+from maxpool import MaxPool2
+from softmax import Softmax
 
-# We only use the first 1k examples of each set in the interest of time. # ok
-# Feel free to change this if you want. # ok
-train_images = mnist.train_images()[:1000] # ok
-train_labels = mnist.train_labels()[:1000] # ok
-test_images = mnist.test_images()[:1000] # ok
-test_labels = mnist.test_labels()[:1000] # ok
+# We only use the first 1k examples of each set in the interest of time.
+# Feel free to change this if you want.
+train_images = mnist.train_images()[:1000]
+train_labels = mnist.train_labels()[:1000]
+test_images = mnist.test_images()[:1000]
+test_labels = mnist.test_labels()[:1000]
 
-conv = Conv3x3(8) # ok                  # 28x28x1 -> 26x26x8
-pool = MaxPool2() # ok                  # 26x26x8 -> 13x13x8
-softmax = Softmax(13 * 13 * 8, 10) # ok # 13x13x8 -> 10
+conv = Conv3x3(8)                  # 28x28x1 -> 26x26x8
+pool = MaxPool2()                  # 26x26x8 -> 13x13x8
+softmax = Softmax(13 * 13 * 8, 10) # 13x13x8 -> 10
 
 def forward(image, label):
   '''
@@ -56,21 +56,22 @@ def train(im, label, lr=.005):
 
   return loss, acc
 
-print('MNIST CNN initialized!') # ok
+print('MNIST CNN initialized!')
 
-# Train the CNN for 3 epochs # ok
-for epoch in range(3): # ok
-  print('--- Epoch %d ---' % (epoch + 1)) # ok
+# Train the CNN for 3 epochs
+for epoch in range(3):
+  print('--- Epoch %d ---' % (epoch + 1))
 
-  # Shuffle the training data # ok
-  permutation = np.random.permutation(len(train_images)) # ok
-  train_images = train_images[permutation] # ok
-  train_labels = train_labels[permutation] # ok
+  # Shuffle the training data
+  permutation = np.random.permutation(len(train_images))
+  train_images = train_images[permutation]
+  train_labels = train_labels[permutation]
 
-  # Train! # ok
-  loss = 0 # ok
-  num_correct = 0 # ok
-  for i, (im, label) in enumerate(zip(train_images, train_labels)): # ? - 2
+  # Train!
+  loss = 0
+  num_correct = 0
+  # Ng # Ng # Ng # Ng # Ng # Ng
+  for i, (im, label) in enumerate(zip(train_images, train_labels)):
     if i % 100 == 99:
       print(
         '[Step %d] Past 100 steps: Average Loss %.3f | Accuracy: %d%%' %
@@ -82,16 +83,17 @@ for epoch in range(3): # ok
     l, acc = train(im, label)
     loss += l
     num_correct += acc
+  # Ng # Ng # Ng # Ng # Ng # Ng
 
-# Test the CNN # ok
-print('\n--- Testing the CNN ---') # ok
-loss = 0 # ok
-num_correct = 0 # ok
-for im, label in zip(test_images, test_labels): # ok
-  _, l, acc = forward(im, label) # ? - 1
-  loss += l # ok
-  num_correct += acc # ok
+# Test the CNN
+print('\n--- Testing the CNN ---')
+loss = 0
+num_correct = 0
+for im, label in zip(test_images, test_labels):
+  _, l, acc = forward(im, label) # Ng # Ng # Ng # Ng # Ng # Ng
+  loss += l
+  num_correct += acc
 
-num_tests = len(test_images) # ok
-print('Test Loss:', loss / num_tests) # ok
-print('Test Accuracy:', num_correct / num_tests) # ok
+num_tests = len(test_images)
+print('Test Loss:', loss / num_tests)
+print('Test Accuracy:', num_correct / num_tests)
