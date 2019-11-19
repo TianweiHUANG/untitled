@@ -26,7 +26,4 @@ print("l1_feature_map_relu:",l1_feature_map_relu.shape,"\n",l1_feature_map_relu)
 
 print("###### ###### ###### ###### ###### ###### 5.最大池化层 ###### ###### ###### ###### ###### ######")
 l1_feature_map_relu_pool = numpycnn.pooling(l1_feature_map_relu, 2, 2)
-print("l1_feature_map_relu_pool:",l1_feature_map_relu_pool.shape,l1_feature_map_relu_pool.shape[-1],"\n",l1_feature_map_relu_pool)
-
-# print("###### ###### ###### ###### ###### ###### 6.层堆叠 ###### ###### ###### ###### ###### ######")
-
+print("l1_feature_map_relu_pool:",l1_feature_map_relu_pool.shape,"\n",l1_feature_map_relu_pool)
