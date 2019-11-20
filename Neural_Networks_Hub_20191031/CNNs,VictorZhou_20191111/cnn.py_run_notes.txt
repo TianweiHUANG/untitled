@@ -1,4 +1,8 @@
-###### ###### ###### ###### ###### ######
+「LittleHUANG: 纯水仪-通用工具-采购/ parker培训/ 电气原理图/
+基因库模组更换/ 下料槽选择/ 买房买房买房/ OMEGA实验室/ 探亲费/」
+王** 吴** 黄** 武** 妈**
+—————————
+###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ######
 "F:\Program Files (x86)\Python37\python.exe" F:/TianweiHUANG_BGI_Backups_20180504_附件/Python_Practise_20190604/
    PycharmProjects/untitled/Neural_Networks_Hub_20191031/CNNs,VictorZhou_20191111/cnn-from-scratch-master/cnn.py
 MNIST CNN initialized!
@@ -41,20 +45,8 @@ Test Loss: 0.5011615711838817
 Test Accuracy: 0.839
 
 Process finished with exit code 0
-###### ###### ###### ###### ###### ######
-$.START
-$.The first 1k examples
-$.MNIST CNN initialized!
+###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ######
 
-$.Train the CNN for 3 epochs → 3*1000
-$.Train! → 1000 // loss = 0, num_correct = 0
-
-$.Test the CNN
-$.END
-$.
 (13, 13, 8) -> Softmax(13 * 13 * 8, 10) -> (10,)
-「LittleHUANG: 纯水仪-通用工具-采购/ parker培训/ 电气原理图/
-基因库模组更换/ 下料槽选择/ 买房买房买房/ OMEGA实验室/ 探亲费/」
-—————————
-王、吴、黄、武、妈
-###### ###### ###### ###### ###### ######
+
+###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ######
