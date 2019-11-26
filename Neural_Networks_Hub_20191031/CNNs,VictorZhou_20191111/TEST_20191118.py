@@ -3,7 +3,6 @@
 # 03$.@ aliyun-CNN
 # 04$.@ 白手起家的百万富翁-MLP
 # 05$.@ <<Tensorflow 实战>>
-# -正态分布/ -softmax/ -交叉熵/
 
 import mnist
 import numpy as np
